@@ -30,16 +30,22 @@ export default class Header extends Component {
     if (loadState) return <Loading />;
     return (
       <header data-testid="header-component">
-        <p data-testid="header-user-name">{user.name}</p>
-        <Link data-testid="link-to-search" to="/search">
-          Search
-        </Link>
-        <Link data-testid="link-to-favorites" to="/favorites">
-          Favorites
-        </Link>
-        <Link data-testid="link-to-profile" to="/profile">
-          Profile
-        </Link>
+        {loadState ? (
+          <Loading />
+        ) : (
+          <>
+            <p data-testid="header-user-name">{user.name}</p>
+            <Link data-testid="link-to-search" to="/search">
+              Search
+            </Link>
+            <Link data-testid="link-to-favorites" to="/favorites">
+              Favorites
+            </Link>
+            <Link data-testid="link-to-profile" to="/profile">
+              Profile
+            </Link>
+          </>
+        )}
       </header>
     );
   }
