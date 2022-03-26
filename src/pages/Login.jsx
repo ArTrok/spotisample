@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Loading from './Loading';
 import { createUser } from '../services/userAPI';
+import './Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -42,10 +43,11 @@ class Login extends React.Component {
           {loadState ? (
             <Loading />
           ) : (
-            <form>
+            <form className='form'>
               <label htmlFor="name">
-                Name
+                {"Name: "}
                 <input
+                  className='input-name'
                   data-testid="login-name-input"
                   type="text"
                   name="name"
@@ -55,11 +57,12 @@ class Login extends React.Component {
               </label>
               <button
                 data-testid="login-submit-button"
+                className='login-button'
                 type="button"
                 disabled={ name.length < REQ_L }
                 onClick={ this.buttonClick }
               >
-                Entrar
+                Login
               </button>
             </form>
           )}
